@@ -281,16 +281,6 @@ foreach $line (@in)
             $instruction=~s/(\W)$reg(\W|$)/\1${reg}_notype\2/g;
         }
     }
-    
-    # ************ GNU BUG WORK AROUND #3 ********************
-    #
-    # The current (2010Q1) GNU assembler cannot handle VMRS/VMSR
-    # So we switch them to MRS/MSR... seems to work.
-    #===============================================================
-
-    $instruction=~s/^\s*VMRS(.*)/        MRS$1/ig;
-    $instruction=~s/^\s*VMSR(.*)/        MSR$1/ig;
-    
 
     #--------------------------------------------------------------------------
     # The only time we are going to modify the comment is if it contains 
