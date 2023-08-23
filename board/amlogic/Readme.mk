@@ -187,10 +187,14 @@ endif
 	@echo =======================================================================
 	@echo The mark in board is "M8B_M203_1G"
 	@echo config command: \"make m8b_m203_1G_config\"
-	
+
 	@echo =======================================================================
 	@echo The mark in board is "M8B_FT_V1"
 	@echo config command: \"make m8b_ft_v1_config\"
+
+	@echo =======================================================================
+	@echo The mark in board is "MXQ_221805_v1.5"
+	@echo config command: \"make HD18Q_RTL8723AS_LPDDR2_1G_config\"
 
 	@echo =======================================================================
 	@echo The mark in board is "M8M2_SKT_V1"
