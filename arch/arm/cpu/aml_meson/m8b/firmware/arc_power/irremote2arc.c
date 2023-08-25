@@ -2,6 +2,8 @@
 #ifdef CONFIG_IR_REMOTE_WAKEUP
 
 #define IR_POWER_KEY    0xe51afb04
+#define HD18Q_POWER_KEY  0xbf40fe01
+#define M201D_POWER_KEY  0xb24d4040
 #define IR_POWER_KEY_MASK 0xffffffff
 unsigned int kk[] = {
         0xe51afb04,
@@ -145,7 +147,9 @@ int remote_detect_key(){
     unsigned power_key;
     if(((readl(P_AO_MF_IR_DEC_STATUS))>>3) & 0x1){
 	power_key = readl(P_AO_MF_IR_DEC_FRAME);
-	if((power_key&IR_POWER_KEY_MASK) == kk[DECODEMODE_NEC]){
+	if(((power_key&IR_POWER_KEY_MASK) == kk[DECODEMODE_NEC])
+		|| ((power_key&IR_POWER_KEY_MASK) == HD18Q_POWER_KEY)
+		|| ((power_key&IR_POWER_KEY_MASK) == M201D_POWER_KEY)){
 	    return 1;
         }
     }
